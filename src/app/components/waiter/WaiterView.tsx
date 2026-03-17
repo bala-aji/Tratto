@@ -123,7 +123,7 @@ export function WaiterView() {
     return () => clearInterval(interval);
   }, [WAITER_NAME]);
 
-  const getElapsed = (d: Date) => Math.floor((Date.now() - d.getTime()) / 60000);
+  const getElapsed = (d: Date | string) => Math.floor((Date.now() - new Date(d).getTime()) / 60000);
   const myTables = tables;
   const activeOrders = orders.filter(o => o.status !== 'Served');
   const readyOrders = orders.filter(o => o.status === 'Ready');

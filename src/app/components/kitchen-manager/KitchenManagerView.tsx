@@ -21,7 +21,7 @@ import { UserBadge } from '../auth/UserBadge';
 /* ========== SHARED HELPERS ========== */
 const KITCHEN_STATUS_FLOW: KitchenStatus[] = ['New', 'Preparing', 'Ready', 'Served'];
 const PARCEL_STATUS_FLOW: ParcelStatus[] = ['Received', 'Packing', 'Ready', 'Picked Up'];
-const getElapsed = (d: Date) => Math.floor((Date.now() - d.getTime()) / 60000);
+const getElapsed = (d: Date | string) => Math.floor((Date.now() - new Date(d).getTime()) / 60000);
 const getTimeRemaining = (d: Date) => Math.ceil((d.getTime() - Date.now()) / 60000);
 
 type ManagerTab = 'kitchen' | 'waiters' | 'parcel';

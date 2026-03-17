@@ -19,7 +19,7 @@ const statusConfig: Record<ParcelStatus, { bg: string; border: string; badge: st
   'Picked Up': { bg: 'bg-gray-50', border: 'border-gray-200', badge: 'bg-gray-100', badgeText: 'text-gray-600', icon: CheckCheck, label: 'Picked Up' },
 };
 
-function getElapsed(d: Date) { return Math.floor((Date.now() - d.getTime()) / 60000); }
+function getElapsed(d: Date | string) { return Math.floor((Date.now() - new Date(d).getTime()) / 60000); }
 
 function getTimeRemaining(d: Date) {
   const diff = Math.ceil((d.getTime() - Date.now()) / 60000);

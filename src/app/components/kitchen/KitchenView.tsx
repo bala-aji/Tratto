@@ -11,9 +11,8 @@ import { UserBadge } from '../auth/UserBadge';
 
 const STATUS_FLOW: KitchenStatus[] = ['New', 'Preparing', 'Ready', 'Served'];
 
-function getElapsed(created: Date) {
-  const diff = Math.floor((Date.now() - created.getTime()) / 60000);
-  return diff;
+function getElapsed(created: Date | string) {
+  return Math.floor((Date.now() - new Date(created).getTime()) / 60000);
 }
 
 function getTimerColor(mins: number) {

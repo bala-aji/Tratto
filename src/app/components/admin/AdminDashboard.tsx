@@ -393,7 +393,7 @@ function LiveOperationsView() {
   const [parcelOrders] = useState<ParcelOrder[]>(() => mockParcelOrders.map(o => ({ ...o, items: o.items.map(i => ({ ...i })) })));
   const [wTables] = useState<WaiterTable[]>(() => waiterTables.map(t => ({ ...t })));
 
-  const getElapsed = (d: Date) => Math.floor((Date.now() - d.getTime()) / 60000);
+  const getElapsed = (d: Date | string) => Math.floor((Date.now() - new Date(d).getTime()) / 60000);
 
   // Kitchen stats
   const kNew = kitchenOrders.filter(o => o.status === 'New').length;
